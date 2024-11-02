@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap');
+@font-face {
+    font-family: 'F1 Bold';
+    src: url('./fonts/Formula1-Bold_web_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'F1 Regular';
+    src: url('./fonts/Formula1-Regular_web_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'F1 Light';
+    src: url('./fonts/Formula1-WIDE_web_0.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.menu {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+    border-bottom: 2px solid #ddd;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links ul li {
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nav-links ul li:hover {
+    color: #000;
+}
+
+.btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background-color: #333;
+    color: white;
+}
+
+.btn-red {
+    background-color: #d62020;
+    color: white;
+    margin-left: 10px;
+}
+
+/* Estilo para a Barra Vermelha */
+.red-bar {
+    background-color: #d62020;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 50px;
+    gap: 30px;
+    color: #fff;
+}
+
+.red-bar img {
+    width: 80px; /* Tamanho do logo da F1 */
+}
+
+.red-bar-links ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.red-bar-links ul li {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.red-bar-links ul li:hover {
+    text-decoration: underline;
+}
+
+/* Adicionando seta com CSS */
+.red-bar-links ul li::after {
+    content: ''; /* Remove o '>' */
+    border: solid white;
+    border-width: 0 2px 2px 0; /* Define a espessura da borda */
+    display: inline-block;
+    padding: 5px; /* Ajusta o tamanho da seta */
+    transform: rotate(45deg); /* Gira para criar uma seta para baixo */
+    margin-left: 7px;
+    opacity: 0; /* Oculto por padrão */
+}
+
+/* Exibindo setas apenas para itens específicos */
+.red-bar-links ul li:nth-child(1)::after, /* Latest */
+.red-bar-links ul li:nth-child(4)::after, /* Schedule */
+.red-bar-links ul li:nth-child(5)::after, /* Results */
+.red-bar-links ul li:nth-child(6)::after, /* Drivers */
+.red-bar-links ul li:nth-child(7)::after, /* Teams */
+.red-bar-links ul li:nth-child(8)::after { 
+    opacity: 1;
+}
+
+.red-bar-links ul li:nth-child(1):hover, /* Latest */
+.red-bar-links ul li:nth-child(4):hover, /* Schedule */
+.red-bar-links ul li:nth-child(5):hover, /* Results */
+.red-bar-links ul li:nth-child(6):hover, /* Drivers */
+.red-bar-links ul li:nth-child(7):hover, /* Teams */
+.red-bar-links ul li:nth-child(8):hover { 
+    background-color: #191919;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+}
+
+.event-info {
+    display: flex;
+    align-items: center;
+}
+
+.event-date {
+    color: #ffffff;
+ font-size: 0.9rem;
+    margin-right: 1.5rem;
+    font-family:'F1 Regular', sans-serif;
+}
+
+.event-location {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.track-icon {
+    width: 40px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.country {
+    color: #fff;
+    font-family: 'F1 Bold', sans-serif;
+    margin-right: 0.5rem;
+}
+
+.year img {
+    width: 50px; /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    margin-left: 0.2rem;
+}
+
+.arrow {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.countdown {
+    background-color: #006f3d;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.time-unit {
+    text-align: center;
+}
+
+.time {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #ddd;
+}
+
+.teams {
+    padding: 2rem;
+    text-align: center;
+}
+
+.teams h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+}
+
+/* Ajuste padrão para tamanho das logos e espaçamento */
+.car {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 200px; /* Largura fixa para todos os contêineres */
+    height: 120px; /* Altura fixa para as logos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #797979; /* Cor de fundo padrão */
+    margin: 10px; /* Espaçamento entre os contêineres */
+}
+
+.car img {
+    width: 50%;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem dentro do contêiner */
+    transition: transform 0.3s ease;
+}
+
+/* Zoom e cor de fundo para cada equipe no hover */
+.car:hover img {
+    transform: scale(0.9); /* Aumenta a imagem levemente */
+}
+
+/* Cores de fundo por equipe no hover */
+.car:nth-child(1):hover {
+    background-color: #00d2be; /* Cor da Mercedes */
+}
+
+.car:nth-child(2):hover {
+    background-color: #dc0000; /* Cor da Ferrari */
+}
+
+.car:nth-child(3):hover {
+    background-color: #1e41ff; /* Cor da Red Bull */
+}
+
+.car:nth-child(4):hover {
+    background-color: #ff8700; /* Cor da McLaren */
+}
+
+.car:nth-child(5):hover {
+    background-color: #0090ff; /* Cor da Alpine */
+}
+
+.car:nth-child(6):hover {
+    background-color: #01635B; /* Cor da Aston Martin */
+}
+
+.car:nth-child(7):hover {
+    background-color: #ffffff; /* Cor da Haas */
+}
+
+.car:nth-child(8):hover {
+    background-color: #1434CB; /* Cor da RB */
+}
+
+.car:nth-child(9):hover {
+    background-color: #2D2F44; /* Cor da Williams */
+}
+
+.car:nth-child(10):hover {
+    background-color: #00E701; /* Cor da Sauber */
+}
+
+.carousel-button {
+    background-color: #d62020;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Adicionando hover nos botões */
+.carousel-button:hover {
+    background-color: #b50000;
+}
+
+.drivers, .tracks {
+    padding: 2rem;
+    text-align: center;
+}
+
+.drivers h2, .tracks h2 {
+    color: #fff;
+    font-size: 2rem ;
+    margin-bottom: 1.5rem;
+}
+
+.driver-cards, .track-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Espaçamento entre os cartões */
+}
+
+.driver-card, .track-card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #fff;
+    max-width: 200px; /* Largura máxima dos cartões */
+    transition: transform 0.3s;
+}
+
+.driver-card img, .track-card img {
+    width: 100%; /* Imagens ocupando toda a largura do cartão */
+    border-radius: 8px; /* Bordas arredondadas para as imagens */
+}
+
+.driver-card:hover, .track-card:hover {
+    transform: scale(1.05); /* Efeito de zoom no hover */
+}
+
+.driver-card h3, .track-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.driver-card p, .track-card p {
+    font-size: 0.9rem;
+}
+
+/* Media queries for responsiveness */
+
+/* Mobile devices (portrait and landscape) */
+@media only screen and (max-width: 480px) {
+    .menu {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .header-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+    }
+
+    .nav-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .red-bar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .red-bar-links ul {
+        flex-direction: column;
+    }
+
+    .red-bar-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .event-header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .event-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .countdown {
+        padding: 1rem;
+    }
+
+    .carousel {
+        flex-direction: column;
+    }
+
+    .car {
+        width: 100%;
+        height: 150px;
+        margin: 10px 0;
+    }
+
+    .carousel-button {
+        position: relative;
+        top: auto;
+        transform: none;
+    }
+
+    .drivers, .tracks {
+        padding: 1rem;
+    }
+
+    .driver-cards, .track-cards {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .driver-card, .track-card {
+        max-width: 100%;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .menu {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .header-section {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .nav-links ul {
+        flex-direction: row;
+    }
+
+    .nav-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .red-bar {
+        flex-direction: row;
+        padding : 1rem;
+    }
+
+    .red-bar-links ul {
+        flex-direction: row;
+    }
+
+    .red-bar-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .event-header {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .event-info {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .countdown {
+        padding: 1rem;
+    }
+
+    .carousel {
+        flex-direction: row;
+    }
+
+    .car {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .drivers, .tracks {
+        padding: 2rem;
+    }
+
+    .driver-cards, .track-cards {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .driver-card, .track-card {
+        max-width: 150px;
+    }
+}
+
+/* Desktops and laptops */
+@media only screen and (min-width: 769px) {
+    .menu {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .header-section {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .nav-links ul {
+        flex-direction: row;
+    }
+
+    .nav-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .red-bar {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .red-bar-links ul {
+        flex-direction: row;
+    }
+
+    .red-bar-links ul li {
+        font-size: 1.2rem;
+    }
+
+    .event-header {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .event-info {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .countdown {
+        padding: 1rem;
+    }
+
+    .carousel {
+        flex-direction: row;
+    }
+
+    .car {
+        width: 200px;
+        height: 150px;
+        margin: 10px;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .drivers, .tracks {
+        padding: 2rem;
+    }
+
+    .driver-cards, .track-cards {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .driver-card, .track-card {
+        max-width: 200px;
+    }
+}
